@@ -8,17 +8,17 @@ const scene = new THREE.Scene();
 scene.background = new THREE.Color("#F0F0F0");
 
 // Camera
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 10);
 camera.position.z = 5;
 
 // Object
 
 const geometry = new THREE.DodecahedronGeometry();
-const mesh = new THREE.MeshBasicMaterial({color: "#468585"});
+const mesh = new THREE.MeshLambertMaterial({color: "#468585", emissive: "#468585"});
 const dodecahedron = new THREE.Mesh(geometry, mesh);
 
 const boxGeometry = new THREE.BoxGeometry(2, 0.1, 2 );
-const boxMaterial = new THREE.MeshBasicMaterial({color: "#B4B4B3"});
+const boxMaterial = new THREE.MeshLambertMaterial({color: "#B4B4B3", emissive:"#B4B4B3"});
 const box = new THREE.Mesh(boxGeometry, boxMaterial);
 box.position.y = -1.5;
 
@@ -28,7 +28,7 @@ scene.add(box);
 // Light
 
 const light = new THREE.SpotLight(0x006769, 100);
-light.position.set(1,1,1);
+light.position.set(1,0.5,1);
 scene.add(light);
 
 
